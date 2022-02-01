@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\git_progect.dir/objects.a
+C:\mingw\mingw32\bin\ar.exe cr CMakeFiles\git_progect.dir/objects.a @CMakeFiles\git_progect.dir\objects1.rsp
+C:\mingw\mingw32\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\git_progect.dir/objects.a -Wl,--no-whole-archive -o git_progect.exe -Wl,--out-implib,libgit_progect.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\git_progect.dir\linklibs.rsp
