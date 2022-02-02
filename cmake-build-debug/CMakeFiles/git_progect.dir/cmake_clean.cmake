@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/git_progect.dir/libs/data_structures/vector/vector.c.obj"
   "CMakeFiles/git_progect.dir/main.c.obj"
   "git_progect.exe"
   "git_progect.exe.manifest"
