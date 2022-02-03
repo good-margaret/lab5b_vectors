@@ -17,4 +17,6 @@ assert.h
 C:/Users/1/CLionProjects/git_progect/libs/data_structures/vector/vector.h
 stdio.h
 -
+stdbool.h
+-
 
