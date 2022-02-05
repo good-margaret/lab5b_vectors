@@ -55,15 +55,15 @@ void test_pushBack_fullVector_2() {
     int *data1 = (int *) malloc(sizeof(int));
     data1[0] = 1;
 
-    vector vector1 = (vector) {data1, 1, 1};
-    pushBack(&vector1, 8);
+    vector v = (vector) {data1, 1, 1};
+    pushBack(&v, 8);
 
     int data[] = {1, 8};
     vector expectedVector = (vector) {data, 2, 2};
 
-    assert(isEqualVectors(vector1, expectedVector));
+    assert(isEqualVectors(v, expectedVector));
 
-    clear(&vector1);
+    clear(&v);
 }
 
 void test_pushBack_fullVector() {
@@ -79,6 +79,8 @@ void test_popBack_notEmptyVector_1() {
 
     assert (v.size == 0);
     assert (v.capacity == 1);
+
+    clear(&v);
 }
 
 void test_popBack_notEmptyVector_2() {
@@ -189,6 +191,8 @@ void test_getVectorValue_oneElement() {
     pushBack(&v, 8);
 
     assert(v.data[0] == getVectorValue(&v, 0));
+
+    clear(&v);
 }
 
 void test_getVectorValue_lastElement_1() {
@@ -280,6 +284,8 @@ void test_reserve_fromZeroVector() {
     vector expectedVector = (vector) {malloc(sizeof(int) * 10), 0, 10};
 
     assert (isEqualVectors(v, expectedVector));
+
+    clear(&v);
 }
 
 void test_reserve_newCapacityIsLesserThanSize() {
@@ -311,6 +317,8 @@ void test_reserve_newCapacityIsBiggerThanCapacity() {
 
     assert (isEqualVectors(v, expectedVector));
 
+    clear(&v);
+    clear(&expectedVector);
 }
 
 void test_reserve() {
