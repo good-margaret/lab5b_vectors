@@ -117,6 +117,12 @@
 		<Unit filename="C:/Users/1/CLionProjects/git_progect/libs/data_structures/vector/vector.h">
 			<Option target="git_progect"/>
 		</Unit>
+		<Unit filename="C:/Users/1/CLionProjects/git_progect/libs/data_structures/voidVector/voidVector.c">
+			<Option target="data_structures"/>
+		</Unit>
+		<Unit filename="C:/Users/1/CLionProjects/git_progect/libs/data_structures/voidVector/voidVector.h">
+			<Option target="data_structures"/>
+		</Unit>
 		<Unit filename="C:/Users/1/CLionProjects/git_progect/main.c">
 			<Option target="git_progect"/>
 		</Unit>

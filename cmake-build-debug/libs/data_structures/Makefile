@@ -153,6 +153,30 @@ vector/vector.c.s:
 	cd /d C:\Users\1\CLionProjects\git_progect\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.s
 .PHONY : vector/vector.c.s
 
+voidVector/voidVector.obj: voidVector/voidVector.c.obj
+.PHONY : voidVector/voidVector.obj
+
+# target to build an object file
+voidVector/voidVector.c.obj:
+	cd /d C:\Users\1\CLionProjects\git_progect\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/voidVector/voidVector.c.obj
+.PHONY : voidVector/voidVector.c.obj
+
+voidVector/voidVector.i: voidVector/voidVector.c.i
+.PHONY : voidVector/voidVector.i
+
+# target to preprocess a source file
+voidVector/voidVector.c.i:
+	cd /d C:\Users\1\CLionProjects\git_progect\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/voidVector/voidVector.c.i
+.PHONY : voidVector/voidVector.c.i
+
+voidVector/voidVector.s: voidVector/voidVector.c.s
+.PHONY : voidVector/voidVector.s
+
+# target to generate assembly for a file
+voidVector/voidVector.c.s:
+	cd /d C:\Users\1\CLionProjects\git_progect\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/voidVector/voidVector.c.s
+.PHONY : voidVector/voidVector.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -165,6 +189,9 @@ help:
 	@echo ... vector/vector.obj
 	@echo ... vector/vector.i
 	@echo ... vector/vector.s
+	@echo ... voidVector/voidVector.obj
+	@echo ... voidVector/voidVector.i
+	@echo ... voidVector/voidVector.s
 .PHONY : help
 
 

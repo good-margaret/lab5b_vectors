@@ -112,12 +112,12 @@ libs/data_structures/clean: libs/data_structures/CMakeFiles/data_structures.dir/
 CMakeFiles/git_progect.dir/all: libs/data_structures/CMakeFiles/data_structures.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\git_progect.dir\build.make CMakeFiles/git_progect.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\git_progect.dir\build.make CMakeFiles/git_progect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles --progress-num=3,4,5 "Built target git_progect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles --progress-num=4,5,6 "Built target git_progect"
 .PHONY : CMakeFiles/git_progect.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/git_progect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/git_progect.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/git_progect.dir/rule
@@ -138,12 +138,12 @@ CMakeFiles/git_progect.dir/clean:
 libs/data_structures/CMakeFiles/data_structures.dir/all:
 	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target data_structures"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target data_structures"
 .PHONY : libs/data_structures/CMakeFiles/data_structures.dir/all
 
 # Build rule for subdir invocation for target.
 libs/data_structures/CMakeFiles/data_structures.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 libs/data_structures/CMakeFiles/data_structures.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles 0
 .PHONY : libs/data_structures/CMakeFiles/data_structures.dir/rule

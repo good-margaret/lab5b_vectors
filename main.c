@@ -2,6 +2,8 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "libs/data_structures/vector/vector.h"
+#include "libs/data_structures/voidVector/voidVector.h"
+
 
 void test_pushBack_emptyVector_capacityLargerThanZero() {
     vector v = createVector(5);
@@ -411,6 +413,8 @@ void test() {
 
 int main() {
     test();
+
+    vectorVoid v = (vectorVoid) {NULL, 0, 5, sizeof(int)};
 
     return 0;
 }
