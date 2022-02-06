@@ -15,7 +15,7 @@ void test_pushBack_emptyVector_capacityLargerThanZero() {
 
     assert(isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_pushBack_emptyVector_zeroCapacity() {
@@ -28,7 +28,7 @@ void test_pushBack_emptyVector_zeroCapacity() {
 
     assert(isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_pushBack_emptyVector() {
@@ -50,7 +50,7 @@ void test_pushBack_fullVector_1() {
 
     assert(isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_pushBack_fullVector_2() {
@@ -65,7 +65,7 @@ void test_pushBack_fullVector_2() {
 
     assert(isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_pushBack_fullVector() {
@@ -82,7 +82,7 @@ void test_popBack_notEmptyVector_1() {
     assert (v.size == 0);
     assert (v.capacity == 1);
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_popBack_notEmptyVector_2() {
@@ -98,7 +98,7 @@ void test_popBack_notEmptyVector_2() {
 
     assert (isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_popBack_notEmptyVector() {
@@ -112,7 +112,7 @@ void test_atVector_notEmptyVector_1() {
 
     assert(&v.data[0] == atVector(&v, 0));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_atVector_notEmptyVector_2() {
@@ -144,6 +144,8 @@ void test_back_oneElementInVector_1() {
     pushBack(&v, 1);
 
     assert(&v.data[0] == back(&v));
+
+    deleteVector(&v);
 }
 
 void test_back_oneElementInVector_2() {
@@ -151,6 +153,8 @@ void test_back_oneElementInVector_2() {
     pushBack(&v, 8);
 
     assert(&v.data[0] == back(&v));
+
+    deleteVector(&v);
 }
 
 void test_back_severalElementsInVector_1() {
@@ -172,6 +176,8 @@ void test_front_oneElementInVector() {
     pushBack(&v, 8);
 
     assert(&v.data[0] == front(&v));
+
+    deleteVector(&v);
 }
 
 void test_front_severalElementsInVector_1() {
@@ -194,7 +200,7 @@ void test_getVectorValue_oneElement() {
 
     assert(v.data[0] == getVectorValue(&v, 0));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_getVectorValue_lastElement_1() {
@@ -246,7 +252,7 @@ void test_shrinkToFit_fullVector() {
 
     assert (isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_shrinkToFit_randomVector_1() {
@@ -261,7 +267,7 @@ void test_shrinkToFit_randomVector_1() {
 
     assert (isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_shrinkToFit_randomVector_2() {
@@ -276,7 +282,7 @@ void test_shrinkToFit_randomVector_2() {
 
     assert (isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_reserve_fromZeroVector() {
@@ -287,7 +293,7 @@ void test_reserve_fromZeroVector() {
 
     assert (isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_reserve_newCapacityIsLesserThanSize() {
@@ -303,7 +309,7 @@ void test_reserve_newCapacityIsLesserThanSize() {
 
     assert (isEqualVectors(v, expectedVector));
 
-    clear(&v);
+    deleteVector(&v);
 }
 
 void test_reserve_newCapacityIsBiggerThanCapacity() {
@@ -319,8 +325,8 @@ void test_reserve_newCapacityIsBiggerThanCapacity() {
 
     assert (isEqualVectors(v, expectedVector));
 
-    clear(&v);
-    clear(&expectedVector);
+    deleteVector(&v);
+    deleteVector(&expectedVector);
 }
 
 void test_reserve() {
