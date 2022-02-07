@@ -91,7 +91,7 @@ void pushBack(vector *v, int x) {
     v->data[v->size++] = x;
 }
 
-bool isEqualVectors(vector v1, vector v2) {
+bool isEqualVector(vector v1, vector v2) {
     if (v1.size != v2.size || v1.capacity != v2.capacity)
         return false;
     for (size_t i = 0; i < v1.size; i++)

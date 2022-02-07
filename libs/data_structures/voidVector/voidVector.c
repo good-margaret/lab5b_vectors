@@ -36,7 +36,7 @@ void reserveV(vectorVoid *v, size_t newCapacity) {
     }
 }
 
-bool isEqualVectorsV(vectorVoid v1, vectorVoid v2) {
+bool isEqualVectorV(vectorVoid v1, vectorVoid v2) {
     if (v1.size != v2.size || v1.capacity != v2.capacity || v1.baseTypeSize != v2.baseTypeSize)
         return false;
 
@@ -59,7 +59,7 @@ bool isEmptyV(vectorVoid *v) {
     return v->size == 0;
 }
 
-bool isFull(vectorVoid *v) {
+bool isFullV(vectorVoid *v) {
     return v->size == v->capacity;
 }
 
@@ -77,10 +77,10 @@ void pushBackV(vectorVoid *v, void *source) {
     if (v->capacity == 0) {
         v->data = malloc(v->baseTypeSize);
         v->capacity = 1;
-    } else if (isFull(v))
+    } else if (isFullV(v))
         reserveV(v, v->capacity * 2);
 
-    memcpy(v->data + v->size, source, v->baseTypeSize);
+    memcpy(v->data + v->size * v->baseTypeSize, source, v->baseTypeSize);
 
     v->size++;
 }

@@ -13,7 +13,7 @@ void test_pushBack_emptyVector_capacityLargerThanZero() {
     int data[] = {8};
     vector expectedVector = (vector) {data, 1, 5};
 
-    assert(isEqualVectors(v, expectedVector));
+    assert(isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -26,7 +26,7 @@ void test_pushBack_emptyVector_zeroCapacity() {
     int data[] = {8};
     vector expectedVector = (vector) {data, 1, 1};
 
-    assert(isEqualVectors(v, expectedVector));
+    assert(isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -48,7 +48,7 @@ void test_pushBack_fullVector_1() {
     int data[] = {1, 2, 3, 4, 5, 8};
     vector expectedVector = (vector) {data, 6, 10};
 
-    assert(isEqualVectors(v, expectedVector));
+    assert(isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -63,7 +63,7 @@ void test_pushBack_fullVector_2() {
     int data[] = {1, 8};
     vector expectedVector = (vector) {data, 2, 2};
 
-    assert(isEqualVectors(v, expectedVector));
+    assert(isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -96,7 +96,7 @@ void test_popBack_notEmptyVector_2() {
     int data[] = {10, 9};
     vector expectedVector = (vector) {data, 2, 4};
 
-    assert (isEqualVectors(v, expectedVector));
+    assert (isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -237,7 +237,7 @@ void test_shrinkToFit_emptyVector() {
 
     vector expectedVector = (vector) {NULL, 0, 0};
 
-    assert (isEqualVectors(v, expectedVector));
+    assert (isEqualVector(v, expectedVector));
 }
 
 void test_shrinkToFit_fullVector() {
@@ -250,7 +250,7 @@ void test_shrinkToFit_fullVector() {
 
     vector expectedVector = (vector) {data, 5, 5};
 
-    assert (isEqualVectors(v, expectedVector));
+    assert (isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -265,7 +265,7 @@ void test_shrinkToFit_randomVector_1() {
 
     vector expectedVector = (vector) {data, 5, 5};
 
-    assert (isEqualVectors(v, expectedVector));
+    assert (isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -280,7 +280,7 @@ void test_shrinkToFit_randomVector_2() {
 
     vector expectedVector = (vector) {data, 10, 10};
 
-    assert (isEqualVectors(v, expectedVector));
+    assert (isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -291,7 +291,7 @@ void test_reserve_fromZeroVector() {
 
     vector expectedVector = (vector) {malloc(sizeof(int) * 10), 0, 10};
 
-    assert (isEqualVectors(v, expectedVector));
+    assert (isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -307,7 +307,7 @@ void test_reserve_newCapacityIsLesserThanSize() {
 
     vector expectedVector = (vector) {data, 5, 5};
 
-    assert (isEqualVectors(v, expectedVector));
+    assert (isEqualVector(v, expectedVector));
 
     deleteVector(&v);
 }
@@ -323,7 +323,7 @@ void test_reserve_newCapacityIsBiggerThanCapacity() {
 
     vector expectedVector = (vector) {data, 10, 25};
 
-    assert (isEqualVectors(v, expectedVector));
+    assert (isEqualVector(v, expectedVector));
 
     deleteVector(&v);
     deleteVector(&expectedVector);
@@ -418,26 +418,28 @@ void test() {
 }
 
 
-void test_voidVector_reserve_newCapacityIsLesserThanSize() {
-    int *data = (int *) malloc(sizeof(int) * 30);
-    for (int i = 0; i < 10; i++)
-        data[i] = (4 * i + 3) % 5;
-
-    vectorVoid v = (vectorVoid) {data, 10, 30, sizeof(int)};
-
-    reserveV(&v, 5);
-
-    vectorVoid expectedVector = (vectorVoid) {data, 5, 5, sizeof(int)};
-
-    assert (isEqualVectorsV(v, expectedVector));
-
-    //deleteVector(&v);
-}
-
 int main() {
     test();
-    test_voidVector_reserve_newCapacityIsLesserThanSize();
- //   vectorVoid v = (vectorVoid) {NULL, 0, 5, sizeof(int)};
+
+    int n;
+    scanf("%zd", &n);
+    vectorVoid v = createVectorV(n, sizeof(int));
+
+    for (int i = 0; i < n; i++) {
+        int x;
+        scanf("%d", &x);
+
+        setVectorValueV(&v, i, &x);
+    }
+
+    popBackV(&v);
+
+    for (int i = 0; i < v.size; i++) {
+        int x;
+        getVectorValueV(&v, i, &x);
+
+        printf("%d ", x);
+    }
 
     return 0;
 }

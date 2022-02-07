@@ -19,7 +19,7 @@ vectorVoid createVectorV(size_t n, size_t baseTypeSize);
 
 void reserveV(vectorVoid *v, size_t newCapacity);
 
-bool isEqualVectorsV(vectorVoid v1, vectorVoid v2);
+bool isEqualVectorV(vectorVoid v1, vectorVoid v2);
 
 void shrinkToFitV(vectorVoid *v);
 
@@ -28,6 +28,8 @@ void clearV(vectorVoid *v);
 void deleteVectorV(vectorVoid *v);
 
 bool isEmptyV(vectorVoid *v);
+
+bool isFullV(vectorVoid *v);
 
 void getVectorValueV(vectorVoid *v, size_t index, void *destination);
 
