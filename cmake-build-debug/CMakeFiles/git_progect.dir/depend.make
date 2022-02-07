@@ -6,4 +6,5 @@ CMakeFiles/git_progect.dir/libs/data_structures/vector/vector.c.obj: \
  ../libs/data_structures/vector/vector.h
 CMakeFiles/git_progect.dir/main.c.obj: \
  ../libs/data_structures/vector/vector.h \
+ ../libs/data_structures/voidVector/voidVector.h \
  ../main.c

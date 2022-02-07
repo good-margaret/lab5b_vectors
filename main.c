@@ -417,10 +417,27 @@ void test() {
     test_shrinkToFit();
 }
 
+
+void test_voidVector_reserve_newCapacityIsLesserThanSize() {
+    int *data = (int *) malloc(sizeof(int) * 30);
+    for (int i = 0; i < 10; i++)
+        data[i] = (4 * i + 3) % 5;
+
+    vectorVoid v = (vectorVoid) {data, 10, 30, sizeof(int)};
+
+    reserveV(&v, 5);
+
+    vectorVoid expectedVector = (vectorVoid) {data, 5, 5, sizeof(int)};
+
+    assert (isEqualVectorsV(v, expectedVector));
+
+    //deleteVector(&v);
+}
+
 int main() {
     test();
-
-    vectorVoid v = (vectorVoid) {NULL, 0, 5, sizeof(int)};
+    test_voidVector_reserve_newCapacityIsLesserThanSize();
+ //   vectorVoid v = (vectorVoid) {NULL, 0, 5, sizeof(int)};
 
     return 0;
 }

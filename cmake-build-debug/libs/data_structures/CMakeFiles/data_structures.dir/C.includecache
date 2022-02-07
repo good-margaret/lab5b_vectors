@@ -6,15 +6,17 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/1/CLionProjects/git_progect/libs/data_structures/vector/vector.c
-vector.h
-C:/Users/1/CLionProjects/git_progect/libs/data_structures/vector/vector.h
+C:/Users/1/CLionProjects/git_progect/libs/data_structures/voidVector/voidVector.c
+voidVector.h
+C:/Users/1/CLionProjects/git_progect/libs/data_structures/voidVector/voidVector.h
 stdlib.h
 -
-assert.h
+stdbool.h
+-
+memory.h
 -
 
-C:/Users/1/CLionProjects/git_progect/libs/data_structures/vector/vector.h
+C:/Users/1/CLionProjects/git_progect/libs/data_structures/voidVector/voidVector.h
 stdio.h
 -
 stdbool.h
