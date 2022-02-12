@@ -4,6 +4,7 @@
 
 #include "matrix.h"
 #include <malloc.h>
+#include <stdio.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
@@ -35,3 +36,44 @@ void freeMemMatrices(matrix *ms, int nMatrices) {
         freeMemMatrix(ms[i]);
 }
 
+void inputMatrix(matrix m) {
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; j++)
+            scanf("%d", &m.values[i][j]);
+}
+
+void inputMatrices(matrix *ms, int nMatrices) {
+    for (int i = 0; i < nMatrices; i++)
+        inputMatrix(ms[i]);
+}
+
+void outputMatrix(matrix m) {
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++)
+            printf("%d ", m.values[i][j]);
+
+        printf("\n");
+    }
+}
+
+void outputMatrices(matrix *ms, int nMatrices) {
+    for (int i = 0; i < nMatrices; i++)
+        outputMatrix(ms[i]);
+
+    printf("\n");
+}
+
+void swapRows(matrix m, int i1, int i2) {
+    int *t = m.values[i1];
+    m.values[i1] = m.values[i2];
+    m.values[i2] = t;
+}
+
+void swapColumns(matrix m, int j1, int j2) {
+    for (int i = 0; i < m.nRows; i++) {
+        int t = m.values[i][j1];
+        m.values[i][j1] = m.values[i][j2];
+        m.values[i][j2] = t;
+    }
+
+}

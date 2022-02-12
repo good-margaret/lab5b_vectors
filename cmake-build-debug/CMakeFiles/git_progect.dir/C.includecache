@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/1/CLionProjects/git_progect/libs/data_structures/vector/vector.h
-stdio.h
--
-stdbool.h
--
-
-C:/Users/1/CLionProjects/git_progect/libs/data_structures/voidVector/voidVector.h
-stdio.h
--
-stdbool.h
--
+C:/Users/1/CLionProjects/git_progect/libs/data_structures/matrix/matrix.h
 
 C:/Users/1/CLionProjects/git_progect/main.c
 stdio.h
@@ -25,8 +15,6 @@ assert.h
 -
 stdlib.h
 -
-libs/data_structures/vector/vector.h
-C:/Users/1/CLionProjects/git_progect/libs/data_structures/vector/vector.h
-libs/data_structures/voidVector/voidVector.h
-C:/Users/1/CLionProjects/git_progect/libs/data_structures/voidVector/voidVector.h
+libs/data_structures/matrix/matrix.h
+C:/Users/1/CLionProjects/git_progect/libs/data_structures/matrix/matrix.h
 
