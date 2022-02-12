@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.obj"
+  "CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.obj"
   "CMakeFiles/git_progect.dir/libs/data_structures/vector/vector.c.obj"
   "CMakeFiles/git_progect.dir/main.c.obj"
   "git_progect.exe"

@@ -91,22 +91,53 @@ CMakeFiles/git_progect.dir/libs/data_structures/vector/vector.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/git_progect.dir/libs/data_structures/vector/vector.c.s"
 	C:\mingw\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\1\CLionProjects\git_progect\libs\data_structures\vector\vector.c -o CMakeFiles\git_progect.dir\libs\data_structures\vector\vector.c.s
 
+CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.obj: CMakeFiles/git_progect.dir/flags.make
+CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.obj: ../libs/algorithms/array/array.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.obj"
+	C:\mingw\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\git_progect.dir\libs\algorithms\array\array.c.obj -c C:\Users\1\CLionProjects\git_progect\libs\algorithms\array\array.c
+
+CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.i"
+	C:\mingw\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\1\CLionProjects\git_progect\libs\algorithms\array\array.c > CMakeFiles\git_progect.dir\libs\algorithms\array\array.c.i
+
+CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.s"
+	C:\mingw\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\1\CLionProjects\git_progect\libs\algorithms\array\array.c -o CMakeFiles\git_progect.dir\libs\algorithms\array\array.c.s
+
+CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.obj: CMakeFiles/git_progect.dir/flags.make
+CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.obj: ../libs/algorithms/algorithms.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.obj"
+	C:\mingw\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\git_progect.dir\libs\algorithms\algorithms.c.obj -c C:\Users\1\CLionProjects\git_progect\libs\algorithms\algorithms.c
+
+CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.i"
+	C:\mingw\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\1\CLionProjects\git_progect\libs\algorithms\algorithms.c > CMakeFiles\git_progect.dir\libs\algorithms\algorithms.c.i
+
+CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.s"
+	C:\mingw\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\1\CLionProjects\git_progect\libs\algorithms\algorithms.c -o CMakeFiles\git_progect.dir\libs\algorithms\algorithms.c.s
+
 # Object files for target git_progect
 git_progect_OBJECTS = \
 "CMakeFiles/git_progect.dir/main.c.obj" \
-"CMakeFiles/git_progect.dir/libs/data_structures/vector/vector.c.obj"
+"CMakeFiles/git_progect.dir/libs/data_structures/vector/vector.c.obj" \
+"CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.obj" \
+"CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.obj"
 
 # External object files for target git_progect
 git_progect_EXTERNAL_OBJECTS =
 
 git_progect.exe: CMakeFiles/git_progect.dir/main.c.obj
 git_progect.exe: CMakeFiles/git_progect.dir/libs/data_structures/vector/vector.c.obj
+git_progect.exe: CMakeFiles/git_progect.dir/libs/algorithms/array/array.c.obj
+git_progect.exe: CMakeFiles/git_progect.dir/libs/algorithms/algorithms.c.obj
 git_progect.exe: CMakeFiles/git_progect.dir/build.make
 git_progect.exe: libs/data_structures/libdata_structures.a
+git_progect.exe: libs/algorithms/libalgorithms.a
 git_progect.exe: CMakeFiles/git_progect.dir/linklibs.rsp
 git_progect.exe: CMakeFiles/git_progect.dir/objects1.rsp
 git_progect.exe: CMakeFiles/git_progect.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable git_progect.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\1\CLionProjects\git_progect\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable git_progect.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\git_progect.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

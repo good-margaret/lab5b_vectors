@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/1/CLionProjects/git_progect/libs
+# Install script for directory: C:/Users/1/CLionProjects/git_progect/libs/algorithms
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,15 +35,5 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/mingw/mingw32/bin/objdump.exe")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("C:/Users/1/CLionProjects/git_progect/cmake-build-debug/libs/data_structures/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("C:/Users/1/CLionProjects/git_progect/cmake-build-debug/libs/algorithms/cmake_install.cmake")
 endif()
 
