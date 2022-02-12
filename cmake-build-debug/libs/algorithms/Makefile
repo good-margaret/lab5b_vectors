@@ -129,6 +129,30 @@ algorithms/fast:
 	cd /d C:\Users\1\CLionProjects\git_progect\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/build
 .PHONY : algorithms/fast
 
+algorithms.obj: algorithms.c.obj
+.PHONY : algorithms.obj
+
+# target to build an object file
+algorithms.c.obj:
+	cd /d C:\Users\1\CLionProjects\git_progect\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/algorithms.c.obj
+.PHONY : algorithms.c.obj
+
+algorithms.i: algorithms.c.i
+.PHONY : algorithms.i
+
+# target to preprocess a source file
+algorithms.c.i:
+	cd /d C:\Users\1\CLionProjects\git_progect\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/algorithms.c.i
+.PHONY : algorithms.c.i
+
+algorithms.s: algorithms.c.s
+.PHONY : algorithms.s
+
+# target to generate assembly for a file
+algorithms.c.s:
+	cd /d C:\Users\1\CLionProjects\git_progect\cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs\algorithms\CMakeFiles\algorithms.dir\build.make libs/algorithms/CMakeFiles/algorithms.dir/algorithms.c.s
+.PHONY : algorithms.c.s
+
 array/array.obj: array/array.c.obj
 .PHONY : array/array.obj
 
@@ -162,6 +186,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... algorithms
+	@echo ... algorithms.obj
+	@echo ... algorithms.i
+	@echo ... algorithms.s
 	@echo ... array/array.obj
 	@echo ... array/array.i
 	@echo ... array/array.s

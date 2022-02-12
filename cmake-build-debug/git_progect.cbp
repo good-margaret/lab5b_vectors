@@ -148,6 +148,7 @@
 		</Build>
 		<Unit filename="C:/Users/1/CLionProjects/git_progect/libs/algorithms/algorithms.c">
 			<Option target="git_progect"/>
+			<Option target="algorithms"/>
 		</Unit>
 		<Unit filename="C:/Users/1/CLionProjects/git_progect/libs/algorithms/algorithms.h">
 			<Option target="git_progect"/>
