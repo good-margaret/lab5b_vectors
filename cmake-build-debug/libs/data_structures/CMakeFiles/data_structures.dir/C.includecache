@@ -13,6 +13,10 @@ malloc.h
 -
 stdio.h
 -
+memory.h
+-
 
 C:/Users/1/CLionProjects/git_progect/libs/data_structures/matrix/matrix.h
+stdbool.h
+-
 

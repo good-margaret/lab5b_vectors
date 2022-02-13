@@ -9,10 +9,10 @@ int criteria (int *a, int n) {
 }
 
 int main() {
-    matrix m = getMemMatrix(4, 4);
+    matrix m = getMemMatrix(3, 3);
     inputMatrix(m);
 
-    insertionSortColsMatrixByColCriteria(m, criteria);
+    transposeSquareMatrix(m);
 
     outputMatrix(m);
 
