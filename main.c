@@ -4,12 +4,16 @@
 
 #include "libs/data_structures/matrix/matrix.h"
 
-
+int criteria (int *a, int n) {
+    return a[0];
+}
 
 int main() {
-    matrix m = getMemMatrix(5, 5);
+    matrix m = getMemMatrix(4, 4);
     inputMatrix(m);
-    swapRows(m, 0, 4);
+
+    insertionSortColsMatrixByColCriteria(m, criteria);
+
     outputMatrix(m);
 
     return 0;

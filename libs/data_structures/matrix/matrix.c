@@ -5,6 +5,7 @@
 #include "matrix.h"
 #include <malloc.h>
 #include <stdio.h>
+#include <memory.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
@@ -75,5 +76,101 @@ void swapColumns(matrix m, int j1, int j2) {
         m.values[i][j1] = m.values[i][j2];
         m.values[i][j2] = t;
     }
+}
 
+
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+    int *criteriaArray = (int *) malloc(sizeof(int) * m.nRows);
+
+    for (int i = 0; i < m.nRows; i++)
+        criteriaArray[i] = criteria(m.values[i], m.nCols);
+
+    for (int i = 1; i < m.nRows; i++) {
+        int *t1 = m.values[i];
+        int t2 = criteriaArray[i];
+        int j = i - 1;
+        while (j >= 0 && t2 < criteriaArray[j]) {
+            criteriaArray[j + 1] = criteriaArray[j];
+            m.values[j + 1] = m.values[j];
+            j--;
+        }
+
+        criteriaArray[j + 1] = t2;
+        m.values[j + 1] = t1;
+    }
+
+    free(criteriaArray);
+}
+
+void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+    int *criteriaArray = (int *) malloc(sizeof(int) * m.nCols);
+
+    for (int i = 0; i < m.nCols; i++) {
+        int *col = (int *) malloc(sizeof(int) * m.nRows);
+
+        for (int j = 0; j < m.nRows; j++)
+            col[j] = m.values[j][i];
+
+        criteriaArray[i] = criteria(col, m.nRows);
+
+        free(col);
+    }
+
+    for (int i = 1; i < m.nCols; i++) {
+        int t = criteriaArray[i];
+        int j = i - 1;
+        while (j >= 0 && t < criteriaArray[j]) {
+            criteriaArray[j + 1] = criteriaArray[j];
+            swapColumns(m, j + 1, j);
+            j--;
+        }
+
+        criteriaArray[j + 1] = t;
+    }
+
+    free(criteriaArray);
+}
+
+bool isSquareMatrix(matrix m) {
+    return m.nCols == m.nRows;
+}
+
+bool twoMatricesEqual(matrix m1, matrix m2) {
+    if (m1.nRows != m2.nRows || m1.nCols != m2.nCols)
+        return false;
+
+    for (int i = 0; i < m1.nRows; i++)
+        if (memcmp(m1.values[i], m2.values[i], sizeof(int) * m1.nCols) != 0)
+            return false;
+
+    return true;
+}
+
+bool isEMatrix(matrix m) {
+    if (!isSquareMatrix(m))
+        return false;
+
+    for (int i = 0; i < m.nRows; i++) {
+        int *eMatrixRow = (int *) calloc(m.nCols, sizeof(int));
+        eMatrixRow[i] = 1;
+
+        if (memcmp(m.values[i], eMatrixRow, sizeof(int) * m.nCols) != 0)
+            return false;
+
+        free(eMatrixRow);
+    }
+
+    return true;
+}
+
+bool isSymmetricMatrix(matrix m) {
+    if (!isSquareMatrix(m))
+        return false;
+
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; j++)
+            if (m.values[i][j] != m.values[j][i])
+                return false;
+
+    return true;
 }
