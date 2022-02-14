@@ -79,7 +79,7 @@ void swapColumns(matrix m, int j1, int j2) {
 }
 
 
-void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(const int *, int)) {
     int *criteriaArray = (int *) malloc(sizeof(int) * m.nRows);
 
     for (int i = 0; i < m.nRows; i++)
@@ -102,7 +102,7 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
     free(criteriaArray);
 }
 
-void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(const int *, int)) {
     int *criteriaArray = (int *) malloc(sizeof(int) * m.nCols);
 
     for (int i = 0; i < m.nCols; i++) {
@@ -235,4 +235,17 @@ matrix *createArrayOfMatrixFromArray(const int *values,
 
 void swapRowsContainingMinAndMaxElements(matrix m) {
     swapRows(m, getMinValuePos(m).rowIndex, getMaxValuePos(m).rowIndex);
+}
+
+int getMax(const int *a, int n) {
+    int max = a[0];
+    for (int i = 1; i < n; i++)
+        if (a[i] > max)
+            max = a[i];
+
+    return max;
+}
+
+void sortRowsByMaxElement(matrix m) {
+    insertionSortRowsMatrixByRowCriteria(m, getMax);
 }

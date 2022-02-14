@@ -428,6 +428,58 @@ void test_swapRowsContainingMinAndMaxElements_3() {
     assert(areTwoMatricesEqual(m, expectedResult));
 }
 
+void test_sortRowsByMaxElement_1() {
+    matrix m = createMatrixFromArray((int[]) {9, 10, 11,
+                                              8, 7, 6,
+                                              1, 2, 3}, 3, 3);
+
+    sortRowsByMaxElement(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {1, 2, 3,
+                                              8, 7, 6,
+                                              9, 10, 11}, 3, 3);
+
+    assert(areTwoMatricesEqual(m, expectedResult));
+}
+
+void test_sortRowsByMaxElement_2() {
+    matrix m = createMatrixFromArray((int[]) {10, 5, 9, 10,
+                                              2, 6, 1, 150,
+                                              3, 111, 11, 100,
+                                              4, 8, 12, 16}, 4, 4);
+
+    sortRowsByMaxElement(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {10, 5, 9, 10,
+                                                           4, 8, 12, 16,
+                                                           3, 111, 11, 100,
+                                                           2, 6, 1, 150}, 4, 4);
+
+    assert(areTwoMatricesEqual(m, expectedResult));
+}
+
+void test_sortRowsByMaxElement_3() {
+    matrix m = createMatrixFromArray((int[]) {11, 11, 11,
+                                              7, 7, 7,
+                                              11, 11, 11,
+                                              7, 7, 7}, 4, 3);
+
+    sortRowsByMaxElement(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {7, 7, 7,
+                                                           7, 7, 7,
+                                                           11, 11, 11,
+                                                           11, 11, 11}, 4, 3);
+
+    assert(areTwoMatricesEqual(m, expectedResult));
+}
+
+void test_sortRowsByMaxElement() {
+    test_sortRowsByMaxElement_1();
+    test_sortRowsByMaxElement_2();
+    test_sortRowsByMaxElement_3();
+}
+
 void test_swapRowsContainingMinAndMaxElements() {
     test_swapRowsContainingMinAndMaxElements_1();
     test_swapRowsContainingMinAndMaxElements_2();
@@ -436,6 +488,7 @@ void test_swapRowsContainingMinAndMaxElements() {
 
 void test_secondPartOfAssigment() {
     test_swapRowsContainingMinAndMaxElements();
+    test_sortRowsByMaxElement();
 }
 
 int main() {
