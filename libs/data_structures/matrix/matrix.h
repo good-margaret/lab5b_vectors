@@ -96,4 +96,7 @@ void swapRowsContainingMinAndMaxElements(matrix m);
 
 void sortRowsByMaxElement(matrix m);
 
+void sortColsByMinElement(matrix m);
+
+
 #endif //GIT_PROGECT_MATRIX_H

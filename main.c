@@ -183,6 +183,8 @@ void test_squareMatrix_1() {
                                                            1, 1, 2, 3,
                                                            1, 2, 2, 4}, 4, 4);
     assert(isSquareMatrix(m));
+
+    freeMemMatrix(m);
 }
 
 void test_squareMatrix_2() {
@@ -190,6 +192,8 @@ void test_squareMatrix_2() {
                                               1, 1, 1, 2,
                                               1, 1, 2, 3}, 3, 4);
     assert(!isSquareMatrix(m));
+
+    freeMemMatrix(m);
 }
 
 void test_eMatrix_1() {
@@ -198,6 +202,8 @@ void test_eMatrix_1() {
                                               1, 1, 2, 3,
                                               1, 2, 2, 4}, 4, 4);
     assert(!isEMatrix(m));
+
+    freeMemMatrix(m);
 }
 
 void test_eMatrix_2() {
@@ -205,6 +211,8 @@ void test_eMatrix_2() {
                                               1, 1, 1, 2,
                                               1, 1, 2, 3}, 3, 4);
     assert(!isEMatrix(m));
+
+    freeMemMatrix(m);
 }
 
 void test_eMatrix_3() {
@@ -213,6 +221,8 @@ void test_eMatrix_3() {
                                               0, 0, 1, 0,
                                               0, 0, 0, 1}, 4, 4);
     assert(isEMatrix(m));
+
+    freeMemMatrix(m);
 }
 
 void test_isSymmetricMatrix_1() {
@@ -221,6 +231,8 @@ void test_isSymmetricMatrix_1() {
                                               0, 0, 1, 0,
                                               9, 0, 0, 1}, 4, 4);
     assert(isSymmetricMatrix(m));
+
+    freeMemMatrix(m);
 }
 
 void test_isSymmetricMatrix_2() {
@@ -229,6 +241,8 @@ void test_isSymmetricMatrix_2() {
                                               0, 0, 1, 0,
                                               7, 0, 0, 1}, 4, 4);
     assert(!isSymmetricMatrix(m));
+
+    freeMemMatrix(m);
 }
 
 void test_isSymmetricMatrix_3() {
@@ -236,6 +250,8 @@ void test_isSymmetricMatrix_3() {
                                               0, 1, 0, 0,
                                               0, 0, 1, 0}, 3, 4);
     assert(!isSymmetricMatrix(m));
+
+    freeMemMatrix(m);
 }
 
 void test_getMinValuePos_1() {
@@ -246,6 +262,8 @@ void test_getMinValuePos_1() {
     position minPos = getMinValuePos(m);
 
     assert(minPos.rowIndex == 0 && minPos.colIndex == 0);
+
+    freeMemMatrix(m);
 }
 
 void test_getMinValuePos_2() {
@@ -256,6 +274,8 @@ void test_getMinValuePos_2() {
     position minPos = getMinValuePos(m);
 
     assert(minPos.rowIndex == 3 && minPos.colIndex == 3);
+
+    freeMemMatrix(m);
 }
 
 void test_getMinValuePos_3() {
@@ -266,6 +286,8 @@ void test_getMinValuePos_3() {
     position minPos = getMinValuePos(m);
 
     assert(minPos.rowIndex == 1 && minPos.colIndex == 2);
+
+    freeMemMatrix(m);
 }
 
 void test_getMinValuePos_4() {
@@ -276,6 +298,8 @@ void test_getMinValuePos_4() {
     position minPos = getMinValuePos(m);
 
     assert(minPos.rowIndex == 1 && minPos.colIndex == 2);
+
+    freeMemMatrix(m);
 }
 
 void test_getMaxValuePos_1() {
@@ -286,6 +310,8 @@ void test_getMaxValuePos_1() {
     position maxPos = getMaxValuePos(m);
 
     assert(maxPos.rowIndex == 0 && maxPos.colIndex == 0);
+
+    freeMemMatrix(m);
 }
 
 void test_getMaxValuePos_2() {
@@ -296,6 +322,8 @@ void test_getMaxValuePos_2() {
     position maxPos = getMaxValuePos(m);
 
     assert(maxPos.rowIndex == 3 && maxPos.colIndex == 3);
+
+    freeMemMatrix(m);
 }
 
 void test_getMaxValuePos_3() {
@@ -306,6 +334,8 @@ void test_getMaxValuePos_3() {
     position maxPos = getMaxValuePos(m);
 
     assert(maxPos.rowIndex == 1 && maxPos.colIndex == 3);
+
+    freeMemMatrix(m);
 }
 
 void test_getMaxValuePos_4() {
@@ -316,6 +346,8 @@ void test_getMaxValuePos_4() {
     position maxPos = getMaxValuePos(m);
 
     assert(maxPos.rowIndex == 1 && maxPos.colIndex == 3);
+
+    freeMemMatrix(m);
 }
 
 void test_getMaxValuePos() {
@@ -396,6 +428,9 @@ void test_swapRowsContainingMinAndMaxElements_1() {
                                                                4, 8, 12, 16}, 4, 4);
 
     assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
 }
 
 void test_swapRowsContainingMinAndMaxElements_2() {
@@ -412,6 +447,9 @@ void test_swapRowsContainingMinAndMaxElements_2() {
                                                            4, 8, 12, 16}, 4, 4);
 
     assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
 }
 
 void test_swapRowsContainingMinAndMaxElements_3() {
@@ -426,6 +464,9 @@ void test_swapRowsContainingMinAndMaxElements_3() {
                                                            1, 2, 3}, 3, 3);
 
     assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
 }
 
 void test_sortRowsByMaxElement_1() {
@@ -440,6 +481,9 @@ void test_sortRowsByMaxElement_1() {
                                               9, 10, 11}, 3, 3);
 
     assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
 }
 
 void test_sortRowsByMaxElement_2() {
@@ -456,6 +500,9 @@ void test_sortRowsByMaxElement_2() {
                                                            2, 6, 1, 150}, 4, 4);
 
     assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
 }
 
 void test_sortRowsByMaxElement_3() {
@@ -472,6 +519,69 @@ void test_sortRowsByMaxElement_3() {
                                                            11, 11, 11}, 4, 3);
 
     assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
+}
+
+void test_sortColsByMinElement_1() {
+    matrix m = createMatrixFromArray((int[]) {100, 5, 9, 10,
+                                                   2, 6, 10, 150,
+                                                   3, 7, 11, 100,
+                                                   4, 8, 12, 1}, 4, 4);
+
+    sortColsByMinElement(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {10, 100, 5, 9,
+                                                           150, 2, 6, 10,
+                                                           100, 3, 7, 11,
+                                                           1, 4, 8, 12}, 4, 4);
+    assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
+}
+
+void test_sortColsByMinElement_2() {
+    matrix m = createMatrixFromArray((int[]) {1, 1, 1,
+                                              2, 1, 2,
+                                              1, 5, 1,
+                                              1, 2, 2}, 4, 3);
+
+    sortColsByMinElement(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {1, 1, 1,
+                                                           2, 1, 2,
+                                                           1, 5, 1,
+                                                           1, 2, 2}, 4, 3);
+    assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
+}
+
+void test_sortColsByMinElement_3() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 2, 0,
+                                                 2, 1, 1, 1,
+                                                 3, 2, 1, 1,
+                                                 4, 2, 2, 1}, 4, 4);
+
+    sortColsByMinElement(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {0, 2, 2, 3,
+                                                           1, 1, 1, 2,
+                                                           1, 2, 1, 3,
+                                                           1, 2, 2, 4}, 4, 4);
+    assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
+}
+
+void test_sortColsByMinElement() {
+    test_sortColsByMinElement_1();
+    test_sortColsByMinElement_2();
+    test_sortColsByMinElement_3();
 }
 
 void test_sortRowsByMaxElement() {
@@ -489,6 +599,7 @@ void test_swapRowsContainingMinAndMaxElements() {
 void test_secondPartOfAssigment() {
     test_swapRowsContainingMinAndMaxElements();
     test_sortRowsByMaxElement();
+    test_sortColsByMinElement();
 }
 
 int main() {
