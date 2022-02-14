@@ -17,12 +17,12 @@ matrix getMemMatrix(int nRows, int nCols) {
 }
 
 matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols) {
-    matrix *ms = (matrix *) malloc(sizeof(matrix) * nMatrices);
+    matrix *matrices = (matrix *) malloc(sizeof(matrix) * nMatrices);
 
     for (int i = 0; i < nMatrices; i++)
-        ms[i] = getMemMatrix(nRows, nCols);
+        matrices[i] = getMemMatrix(nRows, nCols);
 
-    return ms;
+    return matrices;
 }
 
 void freeMemMatrix(matrix m) {
@@ -32,9 +32,9 @@ void freeMemMatrix(matrix m) {
     free(m.values);
 }
 
-void freeMemMatrices(matrix *ms, int nMatrices) {
+void freeMemMatrices(matrix *matrices, int nMatrices) {
     for (int i = 0; i < nMatrices; i++)
-        freeMemMatrix(ms[i]);
+        freeMemMatrix(matrices[i]);
 }
 
 void inputMatrix(matrix m) {
@@ -135,7 +135,7 @@ bool isSquareMatrix(matrix m) {
     return m.nCols == m.nRows;
 }
 
-bool twoMatricesEqual(matrix m1, matrix m2) {
+bool areTwoMatricesEqual(matrix m1, matrix m2) {
     if (m1.nRows != m2.nRows || m1.nCols != m2.nCols)
         return false;
 
@@ -175,7 +175,7 @@ bool isSymmetricMatrix(matrix m) {
     return true;
 }
 
-void swap (int *a, int *b) {
+void swap(int *a, int *b) {
     int t = *a;
     *a = *b;
     *b = t;
@@ -207,4 +207,28 @@ position getMaxValuePos(matrix m) {
                 maxPos = (position) {i, j};
 
     return maxPos;
+}
+
+matrix createMatrixFromArray(const int *a, int nRows, int nCols) {
+    matrix m = getMemMatrix(nRows, nCols);
+
+    int k = 0;
+    for (int i = 0; i < nRows; i++)
+        for (int j = 0; j < nCols; j++)
+            m.values[i][j] = a[k++];
+
+    return m;
+}
+
+matrix *createArrayOfMatrixFromArray(const int *values,
+                                     int nMatrices, int nRows, int nCols) {
+    matrix *matrices = getMemArrayOfMatrices(nMatrices, nRows, nCols);
+
+    int l = 0;
+    for (int k = 0; k < nMatrices; k++)
+        for (int i = 0; i < nRows; i++)
+            for (int j = 0; j < nCols; j++)
+                matrices[k].values[i][j] = values[l++];
+
+    return matrices;
 }

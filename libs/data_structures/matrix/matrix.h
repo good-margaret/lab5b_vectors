@@ -28,8 +28,8 @@ matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
 //освобождает память, выделенную под хранение матрицы m
 void freeMemMatrix(matrix m);
 
-//освобождает память, выделенную под хранение массива ms из nMatrices матриц
-void freeMemMatrices(matrix *ms, int nMatrices);
+//освобождает память, выделенную под хранение массива matrices из nMatrices матриц
+void freeMemMatrices(matrix *matrices, int nMatrices);
 
 //ввод матрицы m
 void inputMatrix(matrix m);
@@ -63,7 +63,7 @@ bool isSquareMatrix(matrix m);
 
 //возвращает значение ’истина’, если матрицы m1 и m2 равны,
 //ложь – в противном случае
-bool twoMatricesEqual(matrix m1, matrix m2);
+bool areTwoMatricesEqual(matrix m1, matrix m2);
 
 //возвращает значение ’истина’, если матрица
 //m является единичной, ложь – в противном случае
@@ -81,5 +81,14 @@ position getMinValuePos(matrix m);
 
 //возвращает позицию максимального элемента матрицы m
 position getMaxValuePos(matrix m);
+
+//возвращает матрицу, размера nRows на nCols, построенного
+//из элементов массива a, размещенную в динамической памяти
+matrix createMatrixFromArray(const int *a, int nRows, int nCols);
+
+//возвращает указатель на нулевую матрицу массива из nMatrices матриц,
+//размещенных в динамической памяти, построенных из элементов массива values
+matrix *createArrayOfMatrixFromArray(const int *values,
+                                     int nMatrices, int nRows, int nCols);
 
 #endif //GIT_PROGECT_MATRIX_H
