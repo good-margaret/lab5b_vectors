@@ -98,5 +98,8 @@ void sortRowsByMaxElement(matrix m);
 
 void sortColsByMinElement(matrix m);
 
+matrix mulMatrices(matrix m1, matrix m2);
+
+void getSquareOfMatrixIfSymmetric(matrix *m);
 
 #endif //GIT_PROGECT_MATRIX_H

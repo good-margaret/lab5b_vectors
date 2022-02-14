@@ -578,6 +578,79 @@ void test_sortColsByMinElement_3() {
     freeMemMatrix(expectedResult);
 }
 
+void test_getSquareOfMatrixIfSymmetric_1() {
+    matrix m = createMatrixFromArray((int[]) {1, 0, 1,
+                                              0, 1, 0,
+                                              1, 0, 0}, 3, 3);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {2, 0, 1,
+                                                           0, 1, 0,
+                                                           1, 0, 1}, 3, 3);
+    assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
+}
+
+void test_getSquareOfMatrixIfSymmetric_2() {
+    matrix m = createMatrixFromArray((int[]) {1, 0, 1,
+                                              0, 1, 0,
+                                              1, 1, 0}, 3, 3);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {1, 0, 1,
+                                                           0, 1, 0,
+                                                           1, 1, 0}, 3, 3);
+    assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
+}
+
+void test_getSquareOfMatrixIfSymmetric_3() {
+    matrix m = createMatrixFromArray((int[]) {1, 1, 1, 1,
+                                              1, 1, 1, 1,
+                                              1, 1, 1, 1,
+                                              1, 1, 1, 1}, 4, 4);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {4, 4, 4, 4,
+                                                           4, 4, 4, 4,
+                                                           4, 4, 4, 4,
+                                                           4, 4, 4, 4}, 4, 4);
+    assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
+}
+
+void test_getSquareOfMatrixIfSymmetric_4() {
+    matrix m = createMatrixFromArray((int[]) {1, 1, 1, 1,
+                                              1, 1, 1, 1,
+                                              1, 1, 1, 1}, 3, 4);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {1, 1, 1, 1,
+                                                           1, 1, 1, 1,
+                                                           1, 1, 1, 1}, 3, 4);
+    assert(areTwoMatricesEqual(m, expectedResult));
+
+    freeMemMatrix(m);
+    freeMemMatrix(expectedResult);
+}
+
+void test_getSquareOfMatrixIfSymmetric() {
+    test_getSquareOfMatrixIfSymmetric_1();
+    test_getSquareOfMatrixIfSymmetric_2();
+    test_getSquareOfMatrixIfSymmetric_3();
+    test_getSquareOfMatrixIfSymmetric_4();
+}
+
 void test_sortColsByMinElement() {
     test_sortColsByMinElement_1();
     test_sortColsByMinElement_2();
@@ -600,6 +673,7 @@ void test_secondPartOfAssigment() {
     test_swapRowsContainingMinAndMaxElements();
     test_sortRowsByMaxElement();
     test_sortColsByMinElement();
+    test_getSquareOfMatrixIfSymmetric();
 }
 
 int main() {
