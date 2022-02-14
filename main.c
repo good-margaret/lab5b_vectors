@@ -370,7 +370,7 @@ void test_swapCols(){
     test_swapCols_2();
 }
 
-void test() {
+void test_firstPartOfAssigment() {
     test_swapRows();
     test_swapCols();
     test_insertionSortRows();
@@ -382,8 +382,65 @@ void test() {
     test_getMaxValuePos();
 }
 
+void test_swapRowsContainingMinAndMaxElements_1() {
+    matrix m = createMatrixFromArray((int[]) {10, 5, 9, 10,
+                                              2, 6, 1, 15,
+                                              3, 150, 11, 100,
+                                              4, 8, 12, 16}, 4, 4);
+
+    swapRowsContainingMinAndMaxElements(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {10, 5, 9, 10,
+                                                               3, 150, 11, 100,
+                                                               2, 6, 1, 15,
+                                                               4, 8, 12, 16}, 4, 4);
+
+    assert(areTwoMatricesEqual(m, expectedResult));
+}
+
+void test_swapRowsContainingMinAndMaxElements_2() {
+    matrix m = createMatrixFromArray((int[]) {10, 5, 9, 10,
+                                              2, 6, 1, 150,
+                                              3, 111, 11, 100,
+                                              4, 8, 12, 16}, 4, 4);
+
+    swapRowsContainingMinAndMaxElements(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {10, 5, 9, 10,
+                                                           2, 6, 1, 150,
+                                                           3, 111, 11, 100,
+                                                           4, 8, 12, 16}, 4, 4);
+
+    assert(areTwoMatricesEqual(m, expectedResult));
+}
+
+void test_swapRowsContainingMinAndMaxElements_3() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              8, 7, 6,
+                                              9, 10, 11}, 3, 3);
+
+    swapRowsContainingMinAndMaxElements(m);
+
+    matrix expectedResult = createMatrixFromArray((int[]) {9, 10, 11,
+                                                           8, 7, 6,
+                                                           1, 2, 3}, 3, 3);
+
+    assert(areTwoMatricesEqual(m, expectedResult));
+}
+
+void test_swapRowsContainingMinAndMaxElements() {
+    test_swapRowsContainingMinAndMaxElements_1();
+    test_swapRowsContainingMinAndMaxElements_2();
+    test_swapRowsContainingMinAndMaxElements_3();
+}
+
+void test_secondPartOfAssigment() {
+    test_swapRowsContainingMinAndMaxElements();
+}
+
 int main() {
-    test();
+    test_firstPartOfAssigment();
+    test_secondPartOfAssigment();
 
     return 0;
 }

@@ -232,3 +232,7 @@ matrix *createArrayOfMatrixFromArray(const int *values,
 
     return matrices;
 }
+
+void swapRowsContainingMinAndMaxElements(matrix m) {
+    swapRows(m, getMinValuePos(m).rowIndex, getMaxValuePos(m).rowIndex);
+}

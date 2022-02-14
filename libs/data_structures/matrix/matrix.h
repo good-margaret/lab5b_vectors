@@ -91,4 +91,7 @@ matrix createMatrixFromArray(const int *a, int nRows, int nCols);
 matrix *createArrayOfMatrixFromArray(const int *values,
                                      int nMatrices, int nRows, int nCols);
 
+//обменивает местами строки, содержащии максимальный и минимальный элементы
+void swapRowsContainingMinAndMaxElements(matrix m);
+
 #endif //GIT_PROGECT_MATRIX_H
