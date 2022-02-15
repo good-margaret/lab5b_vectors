@@ -106,5 +106,7 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
+
 
 #endif //GIT_PROGECT_MATRIX_H

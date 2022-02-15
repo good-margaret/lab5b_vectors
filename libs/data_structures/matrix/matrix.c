@@ -168,7 +168,7 @@ bool isSymmetricMatrix(matrix m) {
         return false;
 
     for (int i = 0; i < m.nRows; i++)
-        for (int j = 0; j < m.nCols; j++)
+        for (int j = i; j < m.nCols; j++)
             if (m.values[i][j] != m.values[j][i])
                 return false;
 
@@ -333,4 +333,10 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
     free(sumArray);
 }
 
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
+    return isEMatrix(mulMatrices(m1, m2));
+}
 
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+
+}
