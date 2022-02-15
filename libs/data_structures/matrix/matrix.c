@@ -3,7 +3,7 @@
 //
 
 #include "matrix.h"
-#include <malloc.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <memory.h>
 
@@ -282,3 +282,55 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
     if (isSymmetricMatrix(*m))
         *m = mulMatrices(*m, *m);
 }
+
+int comp (const void *a, const void *b) {
+    const long long *arg1 = a;
+    const long long *arg2 = b;
+
+    if (*arg1 < *arg2)
+        return -1;
+    else if (*arg1 > *arg2)
+        return 1;
+    else
+        return 0;
+}
+
+bool isUnique(const long long *a, int n) {
+    long long *b = (long long *) malloc(sizeof(long long) * n);
+
+    memcpy(b, a, sizeof(long long) * n);
+
+    qsort(b, n, sizeof(long long), comp);
+
+    for (int i = 0; i < n - 1; i++)
+        if (b[i] == b[i + 1]) {
+            free(b);
+            return false;
+        }
+
+    free(b);
+
+    return true;
+}
+
+long long getSum(const int *a, int n) {
+    long long sum = 0;
+    for (int i = 0; i < n; i++)
+        sum += a[i];
+
+    return sum;
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
+    long long *sumArray = (long long *) malloc(sizeof(long long) * m.nRows);
+
+    for (int i = 0; i < m.nRows; i++)
+        sumArray[i] = getSum(m.values[i], m.nCols);
+
+    if (isUnique(sumArray, m.nRows))
+        transposeSquareMatrix(m);
+
+    free(sumArray);
+}
+
+

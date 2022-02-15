@@ -102,4 +102,9 @@ matrix mulMatrices(matrix m1, matrix m2);
 
 void getSquareOfMatrixIfSymmetric(matrix *m);
 
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
+
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+
+
 #endif //GIT_PROGECT_MATRIX_H
