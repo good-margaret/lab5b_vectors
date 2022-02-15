@@ -283,7 +283,7 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
         *m = mulMatrices(*m, *m);
 }
 
-int comp (const void *a, const void *b) {
+int comp(const void *a, const void *b) {
     const long long *arg1 = a;
     const long long *arg2 = b;
 
@@ -369,4 +369,26 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     }
 
     return sumMax;
+}
+
+int min2(int a, int b) {
+    return a < b ? a : b;
+}
+
+int max2(int a, int b) {
+    return a > b ? a : b;
+}
+
+int getMinInArea(matrix m) {
+    position maxPos = getMaxValuePos(m);
+    int min = m.values[maxPos.rowIndex][maxPos.colIndex];
+
+    for (int i = 1; i <= maxPos.rowIndex; i++) {
+        int leftCol = max2(maxPos.colIndex - i, 0);
+        int rightCol = min2(maxPos.colIndex + i, m.nCols - 1);
+
+        min = min2(min, getMin(m.values[maxPos.rowIndex - i] + leftCol, rightCol - leftCol + 1));
+    }
+
+    return min;
 }
