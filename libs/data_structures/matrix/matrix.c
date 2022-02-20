@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <memory.h>
+#include <math.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
@@ -168,7 +169,7 @@ bool isSymmetricMatrix(matrix m) {
         return false;
 
     for (int i = 0; i < m.nRows; i++)
-        for (int j = i; j < m.nCols; j++)
+        for (int j = i + 1; j < m.nCols; j++)
             if (m.values[i][j] != m.values[j][i])
                 return false;
 
@@ -263,7 +264,6 @@ void sortColsByMinElement(matrix m) {
     insertionSortColsMatrixByColCriteria(m, getMin);
 }
 
-
 matrix mulMatrices(matrix m1, matrix m2) {
     matrix m = getMemMatrix(m1.nRows, m2.nCols);
 
@@ -334,13 +334,17 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
 }
 
 bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
-    return isEMatrix(mulMatrices(m1, m2));
+    matrix m = mulMatrices(m1, m2);
+    bool isEMat = isEMatrix(m);
+    freeMemMatrix(m);
+
+    return isEMat;
 }
 
-long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+/*long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     long long sumMax = 0;
 
-    for (int i = 0; i < m.nCols; i++) {
+    for (int i = 1; i < m.nCols; i++) {
         position pos = (position) {1, i + 1};
         int max = m.values[0][i];
 
@@ -370,6 +374,26 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
 
     return sumMax;
 }
+*/
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+    int *maxArray = (int *) malloc(sizeof(int) * (m.nRows + m.nCols - 1));
+    for (int i = 1; i < m.nRows; i++) {
+        maxArray[m.nRows - 1 - i] = m.values[i][0];
+    }
+    memcpy(maxArray + m.nRows - 1, m.values[0], sizeof(int) * m.nCols);
+
+    for (int i = 1; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; j++)
+            if (m.values[i][j] > maxArray[m.nRows - i + j - 1])
+                maxArray[m.nRows - i + j - 1] = m.values[i][j];
+
+    long long sumOfMaxesOfPseudoDiagonal = getSum(maxArray, m.nRows + m.nCols - 1) - maxArray[m.nRows - 1];
+
+    free(maxArray);
+
+    return sumOfMaxesOfPseudoDiagonal;
+}
 
 int min2(int a, int b) {
     return a < b ? a : b;
@@ -391,4 +415,39 @@ int getMinInArea(matrix m) {
     }
 
     return min;
+}
+
+float getDistance(const int *a, int n) {
+    long long sum = 0;
+    for (int i = 0; i < n; i++)
+        sum += a[i] * a[i];
+
+    return sqrt(sum);
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(const int *, int)) {
+    float *criteriaArray = (float *) malloc(sizeof(float) * m.nRows);
+
+    for (int i = 0; i < m.nRows; i++)
+        criteriaArray[i] = criteria(m.values[i], m.nCols);
+
+    for (int i = 1; i < m.nRows; i++) {
+        int *t1 = m.values[i];
+        float t2 = criteriaArray[i];
+        int j = i - 1;
+        while (j >= 0 && t2 < criteriaArray[j]) {
+            criteriaArray[j + 1] = criteriaArray[j];
+            m.values[j + 1] = m.values[j];
+            j--;
+        }
+
+        criteriaArray[j + 1] = t2;
+        m.values[j + 1] = t1;
+    }
+
+    free(criteriaArray);
+}
+
+void sortByDistances(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }

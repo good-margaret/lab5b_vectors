@@ -110,5 +110,6 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 int getMinInArea(matrix m);
 
+void sortByDistances(matrix m);
 
 #endif //GIT_PROGECT_MATRIX_H
