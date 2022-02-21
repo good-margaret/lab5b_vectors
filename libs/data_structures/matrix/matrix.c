@@ -493,3 +493,21 @@ int countEqClassesByRowsSum(matrix m) {
 
     return nUnique;
 }
+
+int getNSpecialElement(matrix m) {
+    int nSpecial = 0;
+
+    for (int i = 0; i < m.nCols; i++) {
+        int *colArray = (int *) malloc(sizeof(int) * m.nRows);
+        for (int j = 0; j < m.nRows; j++)
+            colArray[j] = m.values[j][i];
+
+        if (2 * getMax(colArray, m.nRows) - getSum(colArray, m.nRows) > 0)
+            nSpecial++;
+
+        free(colArray);
+    }
+
+    return nSpecial;
+}
+

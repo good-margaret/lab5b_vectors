@@ -909,6 +909,59 @@ void test_countEqClassesByRowsSum_4() {
     freeMemMatrix(m);
 }
 
+void test_getNSpecialElement_1() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1,
+                                              12, 12, 0,
+                                              3, 2, 1,
+                                              1, 2, 3,
+                                              7, 8, 9}, 5, 3);
+
+    assert(getNSpecialElement(m) == 1);
+
+    freeMemMatrix(m);
+}
+
+void test_getNSpecialElement_2() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1,
+                                              122, 12, 0,
+                                              3, 80, 1,
+                                              1, 2, 3,
+                                              7, 8, 9}, 5, 3);
+
+    assert(getNSpecialElement(m) == 3);
+
+    freeMemMatrix(m);
+}
+
+void test_getNSpecialElement_3() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1,
+                                              12, 12, 1,
+                                              3, 8, 1,
+                                              1, 2, 3}, 4, 3);
+
+    assert(getNSpecialElement(m) == 1);
+
+    freeMemMatrix(m);
+}
+
+void test_getNSpecialElement_4() {
+    matrix m = createMatrixFromArray((int[]) {10, 2, 1,
+                                              12, 12, 1,
+                                              1, 8, 1,
+                                              1, 2, 3}, 4, 3);
+
+    assert(getNSpecialElement(m) == 0);
+
+    freeMemMatrix(m);
+}
+
+void test_getNSpecialElement() {
+    test_getNSpecialElement_1();
+    test_getNSpecialElement_2();
+    test_getNSpecialElement_3();
+    test_getNSpecialElement_4();
+}
+
 void test_countEqClassesByRowsSum() {
     test_countEqClassesByRowsSum_1();
     test_countEqClassesByRowsSum_2();
@@ -983,6 +1036,7 @@ void test_secondPartOfAssigment() {
     test_getMinInArea();
     test_sortByDistances();
     test_countEqClassesByRowsSum();
+    test_getNSpecialElement();
 }
 
 int main() {
