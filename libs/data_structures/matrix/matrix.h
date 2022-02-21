@@ -118,5 +118,11 @@ int getNSpecialElement(matrix m);
 
 void swapPenultimateRow(matrix m);
 
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
+
+int countZeroRows(matrix m);
+
 
 #endif //GIT_PROGECT_MATRIX_H

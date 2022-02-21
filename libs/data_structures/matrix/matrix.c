@@ -516,7 +516,8 @@ position getLeftMin(matrix m) {
 
     for (int i = 0; i < m.nRows; i++)
         for (int j = 0; j < m.nCols; j++)
-            if (m.values[i][j] < m.values[posMin.rowIndex][posMin.colIndex] || m.values[i][j] == m.values[posMin.rowIndex][posMin.colIndex] && j < posMin.colIndex)
+            if (m.values[i][j] < m.values[posMin.rowIndex][posMin.colIndex] ||
+                m.values[i][j] == m.values[posMin.rowIndex][posMin.colIndex] && j < posMin.colIndex)
                 posMin = (position) {i, j};
 
     return posMin;
@@ -537,3 +538,31 @@ void swapThatRow(matrix m, int rowIndex) {
 void swapPenultimateRow(matrix m) {
     swapThatRow(m, m.nRows - 2);
 }
+
+bool isNonDescendingSorted(const int *a, int n) {
+    for (int i = 1; i < n; i++)
+        if (a[i] < a[i - 1])
+            return false;
+
+    return true;
+}
+
+bool hasAllNonDescendingRows(matrix m) {
+    for (int i = 0; i < m.nRows; i++)
+        if (!isNonDescendingSorted(m.values[i], m.nCols))
+            return false;
+
+    return true;
+}
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
+    int nonDescendingCount = 0;
+    for (int i = 0; i < nMatrix; i++) {
+        if (hasAllNonDescendingRows(ms[i]))
+            nonDescendingCount++;
+    }
+
+    return nonDescendingCount;
+}
+
+

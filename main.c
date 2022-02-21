@@ -1025,6 +1025,123 @@ void test_swapPenultimateRow_4() {
     freeMemMatrix(expectedResult);
 }
 
+void test_countNonDescendingRowsMatrices_1() {
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {1, 2,
+                                                             3, 4, 5, 6,
+                                                                   7, 8, 1, 5,
+                                                                         0, 5}, 3, 2, 2);
+
+    assert(countNonDescendingRowsMatrices(ms, 3) == 3);
+
+    freeMemMatrices(ms, 3);
+}
+
+void test_countNonDescendingRowsMatrices_2() {
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {1, 1,
+                                                             3, 4, 5, 5,
+                                                                   7, 7, 1, 1,
+                                                                         0, 0}, 3, 2, 2);
+
+    assert(countNonDescendingRowsMatrices(ms, 3) == 3);
+
+    freeMemMatrices(ms, 3);
+}
+
+void test_countNonDescendingRowsMatrices_3() {
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {1, 2, 3,
+                                                             3, 4, 5,
+                                                             6, 7, 8,
+                                                                     1, 5, 0,
+                                                                     3, 4, 3,
+                                                                     8, 9, 9}, 2, 3, 3);
+
+    assert(countNonDescendingRowsMatrices(ms, 2) == 1);
+
+    freeMemMatrices(ms, 2);
+}
+
+void test_countNonDescendingRowsMatrices_4() {
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {1, 2, 3,
+                                                             3, 4, 5,
+                                                             9, 7, 8,
+                                                                     1, 5, 0,
+                                                                     3, 4, 3,
+                                                                     8, 9, 9}, 2, 3, 3);
+
+    assert(countNonDescendingRowsMatrices(ms, 2) == 0);
+
+    freeMemMatrices(ms, 2);
+}
+
+void test_countZeroRows_1() {
+    matrix m = createMatrixFromArray((int[]) {10, 2, 1,
+                                              12, 12, 1,
+                                              1, 8, 1,
+                                              1, 2, 3}, 4, 3);
+
+    assert(countZeroRows(m) == 0);
+
+    freeMemMatrix(m);
+}
+
+void test_countZeroRows_2() {
+    matrix m = createMatrixFromArray((int[]) {10, 0, 0,
+                                              0, 12, 1,
+                                              1, 8, 0,
+                                              1, 2, 3}, 4, 3);
+
+    assert(countZeroRows(m) == 0);
+
+    freeMemMatrix(m);
+}
+
+void test_countZeroRows_3() {
+    matrix m = createMatrixFromArray((int[]) {0, 0, 0,
+                                              12, 12, 1,
+                                              1, 8, 1,
+                                              0, 0, 0}, 4, 3);
+
+    assert(countZeroRows(m) == 2);
+
+    freeMemMatrix(m);
+}
+
+void test_countZeroRows_4() {
+    matrix m = createMatrixFromArray((int[]) {10, 0, 1,
+                                              12, 0, 1,
+                                              0, 0, 1,
+                                              1, 0, 3}, 4, 3);
+
+    assert(countZeroRows(m) == 0);
+
+    freeMemMatrix(m);
+}
+
+void test_countZeroRows_5() {
+    matrix m = createMatrixFromArray((int[]) {0, 0, 0,
+                                              0, 0, 0,
+                                              0, 0, 0}, 3, 3);
+
+    assert(countZeroRows(m) == 3);
+
+    freeMemMatrix(m);
+}
+
+void test_countZeroRows() {
+    test_countZeroRows_1();
+    test_countZeroRows_2();
+    test_countZeroRows_3();
+    test_countZeroRows_4();
+    test_countZeroRows_5();
+}
+
+void test_countNonDescendingRowsMatrices() {
+    test_countNonDescendingRowsMatrices_1();
+    test_countNonDescendingRowsMatrices_2();
+    test_countNonDescendingRowsMatrices_3();
+    test_countNonDescendingRowsMatrices_4();
+}
+
 void test_swapPenultimateRow() {
     test_swapPenultimateRow_1();
     test_swapPenultimateRow_2();
@@ -1115,11 +1232,15 @@ void test_secondPartOfAssigment() {
     test_countEqClassesByRowsSum();
     test_getNSpecialElement();
     test_swapPenultimateRow();
+    test_countNonDescendingRowsMatrices();
+    test_countZeroRows();
 }
 
 int main() {
     test_firstPartOfAssigment();
     test_secondPartOfAssigment();
+
+
 
     return 0;
 }
