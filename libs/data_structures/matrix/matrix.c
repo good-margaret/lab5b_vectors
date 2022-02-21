@@ -565,4 +565,33 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
     return nonDescendingCount;
 }
 
+int countValues(const int *a, int n, int value) {
+    int countValuesInArray = 0;
+    for (int i = 0; i < n; i++)
+        countValuesInArray += a[i] == value;
 
+    return countValuesInArray;
+}
+
+int countZeroRows(matrix m) {
+    int nZeroRows = 0;
+    for (int i = 0; i < m.nRows; i++)
+        nZeroRows += countValues(m.values[i], m.nCols, 0) == m.nCols;
+
+    return nZeroRows;
+}
+
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
+    int *zeroRowsInMatrices = (int *) malloc(sizeof(int) * nMatrix);
+
+    for (int i = 0; i < nMatrix; i++)
+        zeroRowsInMatrices[i] = countZeroRows(ms[i]);
+
+    int maxNumberOfZeroRows = getMax(zeroRowsInMatrices, nMatrix);
+
+    for (int i = 0; i < nMatrix; i++)
+        if (zeroRowsInMatrices[i] == maxNumberOfZeroRows)
+            outputMatrix(ms[i]);
+
+    free(zeroRowsInMatrices);
+}

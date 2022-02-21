@@ -1240,7 +1240,16 @@ int main() {
     test_firstPartOfAssigment();
     test_secondPartOfAssigment();
 
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {1, 1,
+                                                       3, 4,
+                                                       0, 0, 0, 0,
+                                                             0, 0,
+                                                             0, 1, 1, 1,
+                                                                   0, 0,
+                                                                   0, 0}, 3, 3, 2);
+    printMatrixWithMaxZeroRows(ms, 3);
 
+    freeMemMatrices(ms, 3);
 
     return 0;
 }
