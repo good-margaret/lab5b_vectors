@@ -511,3 +511,29 @@ int getNSpecialElement(matrix m) {
     return nSpecial;
 }
 
+position getLeftMin(matrix m) {
+    position posMin = (position) {0, 0};
+
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; j++)
+            if (m.values[i][j] < m.values[posMin.rowIndex][posMin.colIndex] || m.values[i][j] == m.values[posMin.rowIndex][posMin.colIndex] && j < posMin.colIndex)
+                posMin = (position) {i, j};
+
+    return posMin;
+}
+
+void swapThatRow(matrix m, int rowIndex) {
+    int colIndex = getLeftMin(m).colIndex;
+    int *newRow = (int *) malloc(sizeof(int) * m.nCols);
+
+    for (int i = 0; i < m.nRows; i++)
+        newRow[i] = m.values[i][colIndex];
+
+    free(m.values[rowIndex]);
+
+    m.values[rowIndex] = newRow;
+}
+
+void swapPenultimateRow(matrix m) {
+    swapThatRow(m, m.nRows - 2);
+}

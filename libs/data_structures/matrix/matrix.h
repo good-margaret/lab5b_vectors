@@ -116,4 +116,7 @@ int countEqClassesByRowsSum(matrix m);
 
 int getNSpecialElement(matrix m);
 
+void swapPenultimateRow(matrix m);
+
+
 #endif //GIT_PROGECT_MATRIX_H
