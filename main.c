@@ -867,6 +867,55 @@ void test_sortByDistances_3() {
     freeMemMatrix(expectedResult);
 }
 
+void test_countEqClassesByRowsSum_1() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1,
+                                              1, 3, 1,
+                                              3, 2, 3,
+                                              1, 1, 1}, 4, 3);
+
+    assert(countEqClassesByRowsSum(m) == 4);
+
+    freeMemMatrix(m);
+}
+
+void test_countEqClassesByRowsSum_2() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1,
+                                              2, 2, 2,
+                                              3, 2, 1,
+                                              1, 2, 3}, 4, 3);
+
+    assert(countEqClassesByRowsSum(m) == 1);
+
+    freeMemMatrix(m);
+}
+
+void test_countEqClassesByRowsSum_3() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1}, 1, 3);
+
+    assert(countEqClassesByRowsSum(m) == 1);
+
+    freeMemMatrix(m);
+}
+
+void test_countEqClassesByRowsSum_4() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 1,
+                                              12, 12, 0,
+                                              3, 2, 1,
+                                              1, 2, 3,
+                                              7, 8, 9}, 5, 3);
+
+    assert(countEqClassesByRowsSum(m) == 2);
+
+    freeMemMatrix(m);
+}
+
+void test_countEqClassesByRowsSum() {
+    test_countEqClassesByRowsSum_1();
+    test_countEqClassesByRowsSum_2();
+    test_countEqClassesByRowsSum_3();
+    test_countEqClassesByRowsSum_4();
+}
+
 void test_sortByDistances() {
     test_sortByDistances_1();
     test_sortByDistances_2();
@@ -933,6 +982,7 @@ void test_secondPartOfAssigment() {
     test_findSumOfMaxesOfPseudoDiagonal();
     test_getMinInArea();
     test_sortByDistances();
+    test_countEqClassesByRowsSum();
 }
 
 int main() {

@@ -112,4 +112,6 @@ int getMinInArea(matrix m);
 
 void sortByDistances(matrix m);
 
+int countEqClassesByRowsSum(matrix m);
+
 #endif //GIT_PROGECT_MATRIX_H

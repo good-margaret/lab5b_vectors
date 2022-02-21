@@ -79,7 +79,6 @@ void swapColumns(matrix m, int j1, int j2) {
     }
 }
 
-
 void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(const int *, int)) {
     int *criteriaArray = (int *) malloc(sizeof(int) * m.nRows);
 
@@ -450,4 +449,47 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(const int
 
 void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
+}
+
+int cmp_long_long(const void *pa, const void *pb) {
+    long long arg1 = *(long long *) pa;
+    long long arg2 = *(long long *) pb;
+
+    if (arg1 < arg2)
+        return -1;
+    else if (arg1 > arg2)
+        return 1;
+    else
+        return 0;
+}
+
+int countNUnique(const long long *a, int n) {
+    if (n == 0)
+        return 0;
+
+    long long curElement = a[0];
+    int nUnique = 1;
+
+    for (int i = 1; i < n; i++)
+        if (a[i] != curElement) {
+            nUnique++;
+            curElement = a[i];
+        }
+
+    return nUnique;
+}
+
+int countEqClassesByRowsSum(matrix m) {
+    long long *sumArray = (long long *) malloc(sizeof(long long) * m.nRows);
+
+    for (int i = 0; i < m.nRows; i++)
+        sumArray[i] = getSum(m.values[i], m.nCols);
+
+    qsort(sumArray, m.nRows, sizeof(long long), cmp_long_long);
+
+    int nUnique = countNUnique(sumArray, m.nRows);
+
+    free(sumArray);
+
+    return nUnique;
 }
