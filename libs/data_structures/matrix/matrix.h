@@ -124,5 +124,8 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
 int countZeroRows(matrix m);
 
+void printMatricesWithMinNorms(matrix *ms, int nMatrix);
+
+int getNorm (matrix m);
 
 #endif //GIT_PROGECT_MATRIX_H

@@ -1127,6 +1127,55 @@ void test_countZeroRows_5() {
     freeMemMatrix(m);
 }
 
+void test_getNorm_1() {
+    matrix m = createMatrixFromArray((int[]) {3, 4, 5,
+                                              6, 7, -7,
+                                              -6, -5, -2}, 3, 3);
+
+    assert(getNorm(m) == 7);
+
+    freeMemMatrix(m);
+}
+
+void test_getNorm_2() {
+    matrix m = createMatrixFromArray((int[]) {3, 9, 5,
+                                              6, 7, -7,
+                                              -6, -5, 2}, 3, 3);
+
+    assert(getNorm(m) == 9);
+
+    freeMemMatrix(m);
+}
+
+void test_getNorm_3() {
+    matrix m = createMatrixFromArray((int[]) {3, 4, 5,
+                                              6, 7, -7,
+                                              -6, -5, -2,
+                                              1, -10, -1}, 4, 3);
+
+    assert(getNorm(m) == 10);
+
+    freeMemMatrix(m);
+}
+
+void test_getNorm_4() {
+    matrix m = createMatrixFromArray((int[]) {13, 4, 5,
+                                              6, 7, -7,
+                                              -6, -5, -2,
+                                              1, 2, -12}, 4, 3);
+
+    assert(getNorm(m) == 13);
+
+    freeMemMatrix(m);
+}
+
+void test_getNorm() {
+    test_getNorm_1();
+    test_getNorm_2();
+    test_getNorm_3();
+    test_getNorm_4();
+}
+
 void test_countZeroRows() {
     test_countZeroRows_1();
     test_countZeroRows_2();
@@ -1234,20 +1283,21 @@ void test_secondPartOfAssigment() {
     test_swapPenultimateRow();
     test_countNonDescendingRowsMatrices();
     test_countZeroRows();
+    test_getNorm();
 }
 
 int main() {
     test_firstPartOfAssigment();
     test_secondPartOfAssigment();
 
-    matrix *ms = createArrayOfMatrixFromArray((int[]) {1, 1,
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {2, -1,
                                                        3, 4,
-                                                       0, 0, 0, 0,
-                                                             0, 0,
-                                                             0, 1, 1, 1,
-                                                                   0, 0,
-                                                                   0, 0}, 3, 3, 2);
-    printMatrixWithMaxZeroRows(ms, 3);
+                                                       9, 9, -8, 9,
+                                                              -2, 10,
+                                                              3, 3, 1, 1,
+                                                                    9, 7,
+                                                                    5, 6}, 3, 3, 2);
+    printMatricesWithMinNorms(ms, 3);
 
     freeMemMatrices(ms, 3);
 

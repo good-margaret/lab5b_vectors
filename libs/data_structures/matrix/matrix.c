@@ -595,3 +595,31 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
 
     free(zeroRowsInMatrices);
 }
+
+int getNorm (matrix m) {
+    int maxModule = abs(m.values[0][0]);
+
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; j++) {
+            int elementModule = abs(m.values[i][j]);
+            if (elementModule > maxModule)
+                maxModule = elementModule;
+        }
+
+    return maxModule;
+}
+
+void printMatricesWithMinNorms(matrix *ms, int nMatrix) {
+    int *normsArray = (int *) malloc(sizeof(int) * nMatrix);
+
+    for (int i = 0; i < nMatrix; i++)
+        normsArray[i] = getNorm(ms[i]);
+
+    int minNorm = getMin(normsArray, nMatrix);
+
+    for (int i = 0; i < nMatrix; i++)
+        if (normsArray[i] == minNorm)
+            outputMatrix(ms[i]);
+
+    free(normsArray);
+}
